@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <>
-        <div className=" w-full h-[60px] bg-orange-400">
+        <div className=" w-full h-[60px] fixed z-10 bg-orange-400">
             <div className="h-full w-[94%] mx-auto flex items-center justify-between">
                 <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
                 {menuModal?(
@@ -32,9 +32,8 @@ const Header = () => {
                 
             </div>
         </div>
-        <div className={cls("w-full h-screen fixed top-[60px] right-0", {"block":menuModal}, {"hidden":!menuModal})}>
+        <div className={cls("w-full h-screen fixed z-10 top-[60px] right-0", {"block":menuModal}, {"hidden":!menuModal})}>
             <MenuModal />
-
         </div>
         </>
 
