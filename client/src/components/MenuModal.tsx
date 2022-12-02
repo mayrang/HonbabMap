@@ -19,8 +19,8 @@ const MenuModal = () => {
         <div className="h-full w-full fixed left-0 top-[60] flex justify-center items-start bg-black bg-opacity-40 text-center">
             <div className="w-full h-auto bg-orange-400">
                 <div className="flex flex-col items-end justify-center md:px-8 pt-2 px-2">
-                    <div onClick={handleLogin} className="font-bold text-xl my-1">로그인</div>
-                    <div onClick={handleRegister} className="font-bold text-xl my-1">회원가입</div>
+                    <div onClick={handleLogin} className="font-bold text-xl my-1 cursor-pointer">로그인</div>
+                    <div onClick={handleRegister} className="font-bold text-xl my-1 cursor-pointer">회원가입</div>
                 </div>
             </div>
         </div>
