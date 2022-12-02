@@ -1,0 +1,27 @@
+{
+  "name": "honbab-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev -p 3040"
+  },
+  "author": "mayrang",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.22.3",
+    "immer": "^9.0.15",
+    "next": "^12.2.3",
+    "next-redux-wrapper": "^7.0.5",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-kakao-maps-sdk": "^1.1.1",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-saga": "^1.1.3",
+    "styled-components": "^5.3.5"
+  }
+}

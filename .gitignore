@@ -1,0 +1,8 @@
+/front/node_modules
+/front/.next
+/front/.env.local
+/server/node_modules
+/client/node_modules
+/client/.next
+/client/.env.development
+/server/.env.development
