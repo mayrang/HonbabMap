@@ -3,7 +3,8 @@ import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-
+import authRoute from "./routes/auth";
+import { AppDataSource } from "./data-source";
 
 const app = express();
 
@@ -17,10 +18,23 @@ app.use(cors({
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
+
+app.use("/api/auth", authRoute);
+
 app.get("/", (_, res) => res.send("back server"));
+
+
+
 
 let port = 4000;
 
 app.listen(port, async () => {
     console.log(`Server running ${port} Port`);
+    AppDataSource.initialize()
+    .then(() => {
+        console.log("database init!");
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 })
