@@ -2,9 +2,11 @@ import axios from "axios";
 import {AnyAction, CombinedState, combineReducers} from "@reduxjs/toolkit"
 import {HYDRATE} from "next-redux-wrapper";
 import modalSlice, { ModalState } from "./modalSlice";
+import userSlice, { UserState } from "./userSlice";
 
 export interface RootStates{
-    modal: ModalState
+    modal: ModalState;
+    user: UserState;
 };
 
 axios.defaults.baseURL = "http://localhost:4000/api"
@@ -16,7 +18,8 @@ const rootReducer = (state:RootStates, action:AnyAction):CombinedState<RootState
             return action.payload;
         default:{
             const combineReducer = combineReducers({
-                modal: modalSlice.reducer
+                modal: modalSlice.reducer,
+                user: userSlice.reducer,
             });
             return combineReducer(state, action)
         }

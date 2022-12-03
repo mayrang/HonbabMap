@@ -5,6 +5,7 @@ import cls from "classnames";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import { closeMenu, openMenu } from "../redux/reducers/modalSlice";
 import MenuModal from "./MenuModal";
+import Link from "next/link";
 
 
 const Header = () => {
@@ -21,9 +22,10 @@ const Header = () => {
 
     return (
         <>
-        <div className=" w-full h-[60px] fixed z-10 bg-orange-400">
+        <div className=" w-full h-[60px]   bg-orange-400">
             <div className="h-full w-[94%] mx-auto flex items-center justify-between">
                 <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
+                <Link href="/" className="font-bold text-2xl">혼밥천국</Link>
                 {menuModal?(
                     <FontAwesomeIcon onClick={handleMenu} icon={faClose} size="2x" />
                 ):(
