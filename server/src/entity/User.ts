@@ -1,9 +1,10 @@
 import { IsEmail, Length } from "class-validator";
-import {BaseEntity,  BeforeInsert,  Column,  Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {BaseEntity, Index ,BeforeInsert,  Column,  Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import bcrypt from "bcryptjs";
 import { Review } from "./Review";
 
 @Entity("users")
+@Index(["email", "nickname"])
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     userId: number;
