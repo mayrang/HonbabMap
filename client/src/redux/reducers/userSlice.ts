@@ -47,6 +47,20 @@ export const asyncUserRegister = createAsyncThunk(
             return rejectWithValue(err.response?.data?.error || "회원가입 에러");
         }
     }
+);
+
+export const asyncUserLogin = createAsyncThunk(
+    'user/asyncUserLogin',
+    async (data:object, {rejectWithValue}) => {
+        try{
+            const result = await axios.post("/auth/login", data);
+            return result.data;
+
+        }catch(err:any){
+            console.log(err);
+            return rejectWithValue(err.response?.data?.error || "로그인 에러");
+        }
+    }
 )
 
 const userSlice = createSlice({
@@ -68,6 +82,21 @@ const userSlice = createSlice({
             state.registerLoading = false;
             state.registerDone = false;
             state.registerError = action.payload;
+        });
+        builder.addCase(asyncUserLogin.pending, (state) => {
+            state.loginLoading = true;
+            state.loginDone = false;
+            state.loginError = null;
+        });
+        builder.addCase(asyncUserLogin.fulfilled, (state) => {
+            state.loginLoading = false;
+            state.loginDone = true;
+            state.loginError = null;
+        });
+        builder.addCase(asyncUserLogin.rejected, (state, action) => {
+            state.loginLoading = false;
+            state.loginDone = false;
+            state.loginError = action.payload;
         });
     }
 });
